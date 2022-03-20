@@ -14,6 +14,7 @@ import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.BasicConfigurator;
 import ru.geekbrains.cloud.handler.CloudMessageHandler;
 import ru.geekbrains.cloud.service.UserNameService;
 
@@ -22,6 +23,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 @Slf4j
 public class NettyEchoServer {
     public static void main(String[] args) {
+        BasicConfigurator.configure();
         EventLoopGroup auth = new NioEventLoopGroup(1);//Экзекютор серыисы как только их запустим (НиоЭвентЛукГрупп)
         // они будут крутиться в бесконечном цикле
         EventLoopGroup worker = new NioEventLoopGroup();
@@ -33,7 +35,7 @@ public class NettyEchoServer {
                     .channel(NioServerSocketChannel.class)//
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        protected void initChannel(SocketChannel socketChannel) {
                             socketChannel.pipeline().addLast(//обработчики событий которые обрабатывают сообщения между клиентом и сервером//паттерн сенс оф респосибилити(цкпочка ответственности)
                                     new ObjectEncoder(),//конвеер обработчиков
                                     new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
