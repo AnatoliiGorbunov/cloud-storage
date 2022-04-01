@@ -2,18 +2,31 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0"
-            prefWidth="675.0" style="-fx-background-color: #708090;" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.geekbrains.cloud.client.NettyClient">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="675.0" style="-fx-background-color: #909090; -fx-border-color: black;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.geekbrains.cloud.client.NettyClient">
 
-    <TextField fx:id="clientPath" editable="false" layoutX="29.0" layoutY="28.0" prefHeight="25.0" prefWidth="278.0"/>
-    <TextField fx:id="serverPath" editable="false" layoutX="372.0" layoutY="28.0" prefHeight="25.0" prefWidth="278.0"/>
-    <Button layoutX="315.0" layoutY="201.0" mnemonicParsing="false" onAction="#download" prefHeight="25.0"
-            prefWidth="46.0" text="&lt;&lt;"/>
-    <Button layoutX="315.0" layoutY="155.0" mnemonicParsing="false" onAction="#upload" prefHeight="25.0"
-            prefWidth="46.0" text="&gt;&gt;"/>
-    <ListView fx:id="clientView" layoutX="29.0" layoutY="68.0" prefHeight="370.0" prefWidth="278.0"/>
-    <ListView fx:id="serverView" layoutX="372.0" layoutY="68.0" prefHeight="370.0" prefWidth="278.0"/>
+    <TextField fx:id="clientPath" editable="false" layoutX="29.0" layoutY="90.0" prefHeight="25.0" prefWidth="278.0" style="-fx-border-color: black;" />
+    <TextField fx:id="serverPath" editable="false" layoutX="372.0" layoutY="90.0" prefHeight="25.0" prefWidth="278.0" style="-fx-border-color: black;" />
+    <Button layoutX="315.0" layoutY="201.0" mnemonicParsing="false" onAction="#download" prefHeight="25.0" prefWidth="46.0" style="-fx-border-color: black;" text="&lt;&lt;" />
+    <Button layoutX="315.0" layoutY="155.0" mnemonicParsing="false" onAction="#upload" prefHeight="25.0" prefWidth="46.0" style="-fx-border-color: black;" text="&gt;&gt;" />
+    <ListView fx:id="clientView" layoutX="29.0" layoutY="135.0" prefHeight="370.0" prefWidth="278.0" style="-fx-border-color: black;" />
+    <ListView fx:id="serverView" layoutX="372.0" layoutY="135.0" prefHeight="370.0" prefWidth="278.0" style="-fx-border-color: black;" />
+   <Text layoutX="29.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client" wrappingWidth="110.13671875">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Text>
+   <Text layoutX="372.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server" wrappingWidth="110.13671875">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Text>
+   <Text layoutX="29.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cloud-storage" wrappingWidth="184.13671875">
+      <font>
+         <Font size="25.0" />
+      </font>
+   </Text>
+   <Button onAction="#DeleteClientFile" layoutX="29.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Delete select file (Client)" />
 
 </AnchorPane>
